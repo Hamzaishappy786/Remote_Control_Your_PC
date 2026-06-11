@@ -1,0 +1,30 @@
+# Gradle files
+.gradle/
+build/
+app/build/
+
+# Android Studio / IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+local.properties
+.navigation/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Python-specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+venv/
+.venv/
+env/
+.env
+
+# OS-specific
+.DS_Store
+Thumbs.db
