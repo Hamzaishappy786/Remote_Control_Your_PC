@@ -1,0 +1,45 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!--
+        Shackle arch — the U-shaped top of the padlock.
+        Drawn as a stroked open path with rounded caps; fill is transparent.
+        Q-bezier corners produce a smooth arch without arc commands.
+    -->
+    <path
+        android:pathData="M 35,54 L 35,38 Q 35,22 54,22 Q 73,22 73,38 L 73,54"
+        android:fillColor="#00000000"
+        android:strokeColor="#58A6FF"
+        android:strokeWidth="7"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!--
+        Lock body — rounded rectangle built from straight segments + Q-bezier corners.
+        rx ≈ 8dp on all four corners.
+    -->
+    <path
+        android:pathData="M 32,54 L 76,54 Q 84,54 84,62 L 84,84 Q 84,92 76,92 L 32,92 Q 24,92 24,84 L 24,62 Q 24,54 32,54 Z"
+        android:fillColor="#1D4ED8" />
+
+    <!--
+        H letter — two vertical bars joined by a cross bar.
+        Drawn as a single closed path to avoid stacking order issues.
+        Traces: left-bar top-left → clockwise around entire H outline.
+    -->
+    <path
+        android:pathData="M 33,61 h 5 v 9 h 8 v -9 h 5 v 24 h -5 v -11 h -8 v 11 h -5 Z"
+        android:fillColor="#FFFFFF" />
+
+    <!--
+        L letter — vertical bar with horizontal foot.
+        Traces: top-left → down → right → down → left → close.
+    -->
+    <path
+        android:pathData="M 55,61 h 5 v 18 h 14 v 6 h -19 Z"
+        android:fillColor="#FFFFFF" />
+
+</vector>
