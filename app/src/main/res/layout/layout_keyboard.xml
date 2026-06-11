@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Header bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="4dp"
+        android:paddingEnd="16dp"
+        android:background="@color/surface">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBackKeyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&#8592; Back"
+            android:textSize="14sp"
+            android:textColor="@color/primary"
+            style="@style/Widget.Material3.Button.TextButton" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Keyboard"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <View android:layout_width="80dp" android:layout_height="1dp" />
+    </LinearLayout>
+
+    <!-- Typing area — EditText is the gateway to the soft keyboard -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:cardBackgroundColor="@color/surface"
+        app:cardCornerRadius="12dp"
+        app:strokeColor="@color/primary"
+        app:strokeWidth="2dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Type here — text is sent instantly to your laptop"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+            <!--
+                inputType="textVisiblePassword" disables autocorrect and suggestion strips.
+                The EditText always holds only a zero-width sentinel char so the display looks
+                like a blinking cursor; typed characters are intercepted and forwarded via UDP.
+            -->
+            <EditText
+                android:id="@+id/editKeyInput"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@color/btn_neutral"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:inputType="textPersonName|textNoSuggestions"
+                android:imeOptions="flagNoExtractUi|flagNoFullscreen"
+                android:hint="Tap here to type&#8230;"
+                android:textColorHint="@color/text_secondary"
+                android:importantForAutofill="no" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Section label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="SPECIAL KEYS"
+        android:textColor="@color/text_secondary"
+        android:textSize="11sp"
+        android:letterSpacing="0.12" />
+
+    <!-- Row 1: ESC | TAB | ← | → -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEscape"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="3dp"
+            android:text="ESC"
+            android:textSize="13sp"
+            android:textColor="@color/text_primary"
+            android:focusable="false"
+            app:backgroundTint="@color/btn_special"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:text="TAB"
+            android:textSize="13sp"
+            android:textColor="@color/text_primary"
+            android:focusable="false"
+            app:backgroundTint="@color/btn_special"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnArrowLeft"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:text="&#9664;"
+            android:textSize="18sp"
+            android:textColor="@color/primary"
+            android:focusable="false"
+            app:backgroundTint="@color/btn_special"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnArrowRight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="3dp"
+            android:text="&#9654;"
+            android:textSize="18sp"
+            android:textColor="@color/primary"
+            android:focusable="false"
+            app:backgroundTint="@color/btn_special"
+            app:cornerRadius="8dp" />
+    </LinearLayout>
+
+    <!-- Row 2: ⌫ BKSP | ↵ ENTER | ▲ | ▼ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBackspace"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="3dp"
+            android:text="&#9003;"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:focusable="false"
+            app:backgroundTint="@color/btn_right"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEnter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:text="&#8629; ENTER"
+            android:textSize="11sp"
+            android:textColor="@color/white"
+            android:focusable="false"
+            app:backgroundTint="@color/btn_left"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnArrowUp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:text="&#9650;"
+            android:textSize="18sp"
+            android:textColor="@color/primary"
+            android:focusable="false"
+            app:backgroundTint="@color/btn_special"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnArrowDown"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="3dp"
+            android:text="&#9660;"
+            android:textSize="18sp"
+            android:textColor="@color/primary"
+            android:focusable="false"
+            app:backgroundTint="@color/btn_special"
+            app:cornerRadius="8dp" />
+    </LinearLayout>
+
+    <!-- Row 3: System shortcut combos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAlt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="3dp"
+            android:text="ALT"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:focusable="false"
+            app:backgroundTint="@color/btn_special"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnWinD"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="3dp"
+            android:text="WIN+D"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:focusable="false"
+            app:backgroundTint="#1A5276"
+            app:cornerRadius="8dp" />
+    </LinearLayout>
+
+    <!-- Row 4: Space bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSpace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="SPACE"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:focusable="false"
+            app:backgroundTint="@color/btn_neutral"
+            app:cornerRadius="8dp" />
+    </LinearLayout>
+
+</LinearLayout>
