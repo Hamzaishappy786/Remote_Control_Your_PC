@@ -2,6 +2,8 @@
 
 A high-performance wireless input system that transforms your Android device into a low-latency trackpad and keyboard for your PC. By leveraging a custom lightweight UDP protocol, the system achieves near-zero latency, suitable for smooth control, presentations, and media management.
 
+#### Be careful: If network is not the same, the device won't work.
+
 ![System Architecture and Flow](assets/wifi_remote_flow.png)
 
 ## Core Features
